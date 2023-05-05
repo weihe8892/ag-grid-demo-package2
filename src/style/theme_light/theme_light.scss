@@ -1,0 +1,357 @@
+$grid-row-height: 19px; //18px; //20px;
+
+@use "~ag-grid-community/styles" as ag;
+
+@include ag.grid-styles((
+        theme: theme-light,
+        extend-theme: alpine,
+        font-size: 11px,
+        cell-horizontal-padding: 8px,
+        //header-height: 18px,
+        header-height: $grid-row-height,
+        row-height: $grid-row-height,
+        list-item-height: $grid-row-height + 2px,
+  //grid-size: 3px,
+  //list-item-height: 20px,
+        foreground-color: black,
+        value-change-value-highlight-background-color: transparent,
+));
+
+.ag-theme-theme-light {
+  .nav-header-fg {
+    color: #fff;
+    text-shadow: 0 1px 1px #111111;
+  }
+
+  .app-header-bg {
+    background-color: #174181 !important;
+  }
+
+  .custom-navbar {
+    background-image: -webkit-linear-gradient(bottom, #d9edf7 0, #c4e3f3 100%);
+    background-image: linear-gradient(to top, #d9edf7 0, #c4e3f3 100%);
+  }
+
+  .app-header-label {
+    color: white;
+    font-weight: 300;
+    font-size: 1.6rem;
+    padding-left: 2px;
+    line-height: 1.2rem;
+  }
+
+  .cell-boolean-true-color {
+    color: #28a745;
+  }
+
+  .cell-boolean-false-color {
+    color: #dc3545;
+  }
+
+  .cell-title-dividor {
+    color: #C900A4;
+    font-size: .75rem;
+  }
+
+  ///////////// AG GRID /////////////////////////////////////////////////////////////////////////////////////////////
+
+  .ag-popup-editor {
+    border: none !important;
+  }
+
+  .ag-header-group-cell-label {
+    justify-content: center;
+  }
+
+  .ag-header-cell-text {
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    color: black;
+    font-family: 'Arial', serif;
+  }
+
+  .ag-row {
+    font-size: 11px;
+  }
+
+  .ag-row-selected {
+    //background-color: inherit !important;
+    background-color: #E8EBFC !important; //#cbfbb4 !important; // #ccff90; // #E3E3F8 !important; //#E3E3F8 !important //#E3E3F8 ; //#F5E6DE;   //#A1AFF7; // #b7e4ff !important;
+    //border: solid 1px #0091ea !important;
+  }
+
+  .ag-row-hover {
+    /* putting in !important so it overrides the theme's styling as it hovers the row also */
+    background-color: #f9fafe; //#e3fdd7; // #DFFCD2; //#f7f7fd; // #edf9fe;
+  }
+
+  .ag-group-checkbox {
+    margin-left: 6px !important;
+  }
+
+  .ag-row-group-leaf-indent {
+    margin-left: 1.1em !important
+  }
+
+  //left & right dot, avoid extra dot line before sidebar
+  .ag-ltr .ag-cell {
+    border-right: 1px dotted silver;
+  }
+
+  .ag-rtl .ag-cell {
+    border-left: 1px dotted silver;
+  }
+
+  .ag-overlay-wrapper {
+    display: table-cell !important;
+    padding-top: 80px;
+    vertical-align: top !important;
+    text-align: center;
+  }
+
+  .ag-status-name-value {
+    padding-top: 4px !important;
+    padding-right: 4px !important;
+  }
+
+  .ag-details-row {
+    padding: 0px !important;
+  }
+
+  .ag-cell-data-changed-animation {
+    //background-color: #efebe9; //#fffbdb; //#ffffb8; //#fff1b8; //#F2FC99; //rgba(242,252,153, .9); //rgba(22, 160, 133, 0.2); //#F2FC99;
+    background: rgba(203, 235, 255, 1); //rgb(240,249,255); /* Old browsers */
+    background: linear-gradient(to bottom, rgba(240, 249, 255, 1) 0%, rgba(203, 235, 255, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    color: black !important;
+  }
+
+  .ag-cell-execution-selected {
+    //background-color: #efebe9; //#fffbdb; //#ffffb8; //#fff1b8; //#F2FC99; //rgba(242,252,153, .9); //rgba(22, 160, 133, 0.2); //#F2FC99;
+    background: rgba(203, 235, 255, 1); //rgb(240,249,255); /* Old browsers */
+  }
+
+  .ag-menu-option-part, .ag-compact-menu-option-part {
+    line-height: 12px;
+    padding: 3px 4px;
+  }
+
+  .detail-grid .ag-root {
+    border-top: none;
+  }
+
+
+  ///////////// Webjets /////////////////////////////////////////////////////////////////////////////////////////////
+
+  .trade-browse-high:not(.ag-row-selected):not(.ag-row-hover) {
+    background-color: #e6f5fc; //#e6f5fc; //#e4f9f5; //#e4f9f5; //e4f9ed; //#E3FDE3; //#CFF4ED; //#eaf8e6; //#E5FCFF; //#DEEFED; //#e2fcea; //#E3FDE3; // #b9f6ca; //#E6FFE6;
+  }
+
+  .trade-browse-low:not(.ag-row-selected):not(.ag-row-hover) {
+    background-color: #fffbef; // #fff7e6; // //#fffbef; //#FFFFE6; //#fffbef; // #FFF1D8; //#FFFFE6; //#fffde7; //#FFFFE6;
+  }
+
+  .uiState-CANCELLED:not(.ag-row-selected):not(.ag-row-hover) {
+    background-color: #CACACA; //#B3B3B3 !important;
+  }
+
+  .uiState-ERROR:not(.ag-row-selected):not(.ag-row-hover),
+  .uiState-BDR_ERROR:not(.ag-row-selected):not(.ag-row-hover),
+  .uiState-FIRM_GCD_ID_NOT_SET:not(.ag-row-selected):not(.ag-row-hover),
+  .uiState-TRADER_POSTING_ID_NOT_SET:not(.ag-row-selected):not(.ag-row-hover),
+  .uiState-NDF_EXEC_BML_ERROR:not(.ag-row-selected):not(.ag-row-hover),
+  {
+    background-color: #ffa8a8
+  }
+
+  .uiState-GENERAL_ERROR:not(.ag-row-selected):not(.ag-row-hover),
+  .uiState-AGC_PRICED:not(.ag-row-selected):not(.ag-row-hover) {
+    background-color: #ffff26
+  }
+
+  .uiState-BILL_ROLL_NOT_PROCESSED:not(.ag-row-selected):not(.ag-row-hover),
+  .uiState-NO_SEND:not(.ag-row-selected):not(.ag-row-hover) {
+    background-color: #ffcccc;
+  }
+
+  .uiState-BROKER_COMMENT:not(.ag-row-selected):not(.ag-row-hover) {
+    background-color: red;
+  }
+
+  .uiState-GC_FWD:not(.ag-row-selected):not(.ag-row-hover) {
+    background-color: #66ccff;
+  }
+
+  .trade-browse-buy {
+    background-color: #009688 !important; //#87bf17; //#558b2f; //#009688; //#388E3C; //#57b846; //#11c26d; //#00e676; //#00FF00;
+    color: white !important;
+  }
+
+  .trade-browse-sell {
+    background-color: #D32F2F !important; //#f73936; //#fa4251; //#fb0246; //#ff4c52; //#ffe1e1; //#F44336 // #FF0000;
+    color: white !important;
+  }
+
+  .trade-browse-hist-high:not(.ag-row-selected):not(.ag-row-hover) {
+    background-color: #e4eff1; //#d2e5e9; //#DBECC0; //#d2e5e9; //#C5E0E3; //#DEEFED; //#DEEFED; //#E7F0EC; //#cde8e3; //#badfdb; //e4f9ed; //#E3FDE3; //#CFF4ED; //#eaf8e6; //#E5FCFF; //#DEEFED; //#e2fcea; //#E3FDE3; // #b9f6ca; //#E6FFE6;
+  }
+
+  .trade-browse-hist-low:not(.ag-row-selected):not(.ag-row-hover) {
+    background-color: #fff7ee; //#FDF8ED; //#fcf9ea; //#F6EEE5; //#FFFFE6; //#fffbef; // #FFF1D8; //#FFFFE6; //#fffde7; //#FFFFE6;
+  }
+
+  .trade-browse-hist-cancelled:not(.ag-row-selected):not(.ag-row-hover) {
+    background-color: #e1e5e9;
+  }
+
+  .audit-divider {
+    background-color: #757575 !important; //#cfd8dc !important;
+  }
+
+  .accept-reject-error-cell {
+    background-color: #e53935; //#f73936; //#fa4251; //#fb0246; //#ff4c52; //#ffe1e1; //#F44336 // #FF0000;
+    color: white;
+  }
+
+  .trade-mode-buy-fg {
+    color: green //!important; //#388e3c //#00c853 !important; // #66ff00
+  }
+
+  .trade-mode-sell-fg {
+    color: red //!important; //#d32f2f //#f73936; //#fa4251; //#fb0246; //#ff4c52; //#ffe1e1; //#F44336 // #FF0000;
+  }
+
+  .view-trade-label-header {
+    //font-size: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: black;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .view-trade-label {
+    //font-size: 12px;
+    font-size: 13px;
+    color: #282528;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .view-trade-label-header-green {
+    //font-size: 13px;
+    font-size: 13px;
+    font-weight: 500;
+    color: black;
+    background: #BED95F !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .title-gradient {
+    //background: linear-gradient(to top, #f9fcf7 0%, #f5f9f0 100%);
+    //background-image: linear-gradient(120deg, #ebedee 0%, #fdfbfb 100%);
+
+    //background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
+
+    background: linear-gradient(to top, #dfe9f3, #fafafa 40%);
+  }
+
+  .view-trade-label-header-1 {
+    //font-size: 12px;
+    font-size: 12px;
+    //font-weight: bold;
+    color: black;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    //padding-left: 5px !important;
+    //padding-right: 5px !important;
+    padding: 8px 5px 8px 5px;
+    //background-color: #708904 !important;
+    background-color: unset !important;
+  }
+
+  .view-trade-label-1 {
+    font-size: 12px;
+    color: black;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    //background-color: #708904;
+  }
+
+  .ant-select-ag-grid .ant-select {
+    font-size: 12px !important;
+  }
+
+  .ant-select-ag-grid .ant-select-selector {
+    height: $grid-row-height - 2px !important;
+  }
+
+  .ant-datepicker-ag-grid .ant-picker-input > input {
+    font-size: 12px !important;
+  }
+
+  .app-fieldset {
+    border: 1px solid #ededed;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+  }
+
+  .app-legend {
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 12px;
+    width: auto;
+    border: none;
+    margin-bottom: 1px;
+  }
+
+  .input-readOnly {
+    background: #fafafa;
+  }
+
+  ///////////
+
+  .edit-issue-view {
+    border: 1px solid #f0f0f0;
+    border-radius: 3px;
+  }
+
+  .edit-issue-row:last-child {
+    border-bottom: none;
+  }
+
+  .edit-issue-row {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .edit-issue-header {
+    border-right: 1px solid #f0f0f0;
+    background-color: #fafafa;
+  }
+
+  .trade-menu-default {
+    font-weight: 200;
+    -webkit-text-stroke: 1px white;
+    color: #a0cce2;
+  }
+
+  .trade-menu-send {
+    font-weight: 200;
+    -webkit-text-stroke: 1px white;
+    color: #52adff
+  }
+
+}
